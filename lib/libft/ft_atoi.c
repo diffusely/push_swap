@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noavetis <noavetis@student.42.fr>          +#+  +:+       +#+        */
+/*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 19:23:33 by noavetis          #+#    #+#             */
-/*   Updated: 2025/04/15 17:39:42 by noavetis         ###   ########.fr       */
+/*   Updated: 2025/04/16 16:10:37 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ long	ft_atoi(const char *str, int flag)
 	}
 	if (flag && *str)
 	{
-		ft_putstr_fd("Error", 2);
+		ft_putstr_fd("Error\n", 2);
 		exit(EXIT_FAILURE);
 	}
 	return (num * sign);

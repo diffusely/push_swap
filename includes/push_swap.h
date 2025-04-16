@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noavetis <noavetis@student.42.fr>          +#+  +:+       +#+        */
+/*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 17:06:10 by noavetis          #+#    #+#             */
-/*   Updated: 2025/04/15 16:18:00 by noavetis         ###   ########.fr       */
+/*   Updated: 2025/04/16 16:02:32 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
 
 // Validation
 void	error_handle(char *message);
-void	valid_input(const char *input);
+void	valid_input(int argc , char **input);
 
 #endif

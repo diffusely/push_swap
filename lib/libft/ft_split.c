@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noavetis <noavetis@student.42.fr>          +#+  +:+       +#+        */
+/*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 20:25:56 by noavetis          #+#    #+#             */
-/*   Updated: 2025/04/13 16:10:12 by noavetis         ###   ########.fr       */
+/*   Updated: 2025/04/16 15:50:09 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,19 +51,18 @@ static void	free_split(char **result, int i)
 	}
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char const *s, int *size, char c)
 {
 	char		**result;
-	int			size;
 	int			j;
 	int			i;
 
 	i = 0;
-	size = word_count(s, c);
-	result = (char **)malloc((size + 1) * sizeof(char *));
+	*size = word_count(s, c);
+	result = (char **)malloc((*size + 1) * sizeof(char *));
 	if (!result)
 		return (NULL);
-	while (i < size)
+	while (i < *size)
 	{
 		result[i] = (char *)malloc(word_size(&s, c) + 1);
 		free_split(result, i);
