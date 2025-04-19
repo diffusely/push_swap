@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_check_flags.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/14 17:03:37 by noavetis          #+#    #+#             */
-/*   Updated: 2025/04/20 01:19:14 by noavetis         ###   ########.fr       */
+/*   Created: 2025/02/05 00:26:01 by noavetis          #+#    #+#             */
+/*   Updated: 2025/02/05 00:58:31 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
+#include "ft_printf.h"
 
-int	main(int argc, char **argv)
+int	ft_check(char c)
 {
-	(void)argv;
-	t_stack	*a;
-	//t_stack	*b;
-	if (argc < 2)
-	{
-		error_handle("Error\n");
-	}
-	valid_input(&a, argc, argv);
-	ft_printf("\n");
-	print_stack(a);
-	return (0);
+	return (c == ' ' || c == '0' || c == '-'
+		|| c == '#' || c == '.' || c == '+');
 }

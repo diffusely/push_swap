@@ -1,44 +1,56 @@
-NAME	= libft.a
+NAME		=	libft.a
 
-MFILES	= 	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strlen.c ft_memset.c \
-	  		ft_bzero.c ft_memcpy.c ft_memmove.c ft_strlcpy.c ft_strlcat.c ft_toupper.c ft_tolower.c \
-	  		ft_strchr.c ft_strrchr.c ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c ft_atoi.c \
-	  		ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c \
-	  		ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c get_next_line_utils.c \
-			get_next_line.c
+INCLUDES	=	../../includes
 
-BFILES 	= 	ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c \
-			ft_lstadd_back_bonus.c ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
+SDIR		=	src/
 
-MOBJ 	= 	$(MFILES:.c=.o)
+ODIR		=	obj/
 
-BOBJ 	=	$(BFILES:.c=.o)
+MFILES		= 	$(SDIR)ft_isalpha.c $(SDIR)ft_isdigit.c $(SDIR)ft_isalnum.c $(SDIR)ft_isascii.c \
+				$(SDIR)ft_isprint.c $(SDIR)ft_strlen.c $(SDIR)ft_memset.c \
+	  			$(SDIR)ft_bzero.c $(SDIR)ft_memcpy.c $(SDIR)ft_memmove.c $(SDIR)ft_strlcpy.c \
+				$(SDIR)ft_strlcat.c $(SDIR)ft_toupper.c $(SDIR)ft_tolower.c \
+	  			$(SDIR)ft_strchr.c $(SDIR)ft_strrchr.c $(SDIR)ft_strncmp.c $(SDIR)ft_memchr.c \
+				$(SDIR)ft_memcmp.c $(SDIR)ft_strnstr.c $(SDIR)ft_atoi.c \
+	  			$(SDIR)ft_calloc.c $(SDIR)ft_strdup.c $(SDIR)ft_substr.c $(SDIR)ft_strjoin.c \
+				$(SDIR)ft_strtrim.c $(SDIR)ft_split.c $(SDIR)ft_itoa.c $(SDIR)ft_strmapi.c \
+	  			$(SDIR)ft_striteri.c $(SDIR)ft_putchar_fd.c $(SDIR)ft_putstr_fd.c $(SDIR)ft_putendl_fd.c \
+				$(SDIR)ft_putnbr_fd.c $(SDIR)get_next_line_utils.c $(SDIR)get_next_line.c
 
-CC		=	cc
+BFILES 		= 	$(SDIR)ft_lstnew_bonus.c $(SDIR)ft_lstadd_front_bonus.c $(SDIR)ft_lstsize_bonus.c \
+				$(SDIR)ft_lstlast_bonus.c $(SDIR)ft_lstadd_back_bonus.c $(SDIR)ft_lstdelone_bonus.c \
+				$(SDIR)ft_lstclear_bonus.c $(SDIR)ft_lstiter_bonus.c $(SDIR)ft_lstmap_bonus.c
 
-CFLAG	=	-Wall -Wextra -Werror
+MOBJ 		= 	$(MFILES:$(SDIR)%.c=$(ODIR)%.o)
 
-RM		=	rm -f
+BOBJ 		=	$(BFILES:$(SDIR)%.c=$(ODIR)%.o)
 
-AR		=	ar rcs
+CC			=	cc
 
-all: 		$(NAME)
+CFLAG		=	-Wall -Wextra -Werror -I$(INCLUDES)
 
-bonus:		$(BOBJ)
-			$(AR) $(NAME) $^
+RM			=	rm -rf
 
-%.o:		%.c
-			$(CC) $(CFLAG) -c $< -o $@
+AR			=	ar rcs
 
-$(NAME):	$(MOBJ) $(BOBJ)
-			$(AR) $(NAME) $^
+all: 			$(NAME)
+
+bonus:			$(BOBJ)
+				$(AR) $(NAME) $^
+
+$(ODIR)%.o:		$(SDIR)%.c
+				mkdir -p $(ODIR)
+				$(CC) $(CFLAG) -c $< -o $@
+
+$(NAME):		$(MOBJ) $(BOBJ)
+				$(AR) $(NAME) $^
 
 clean:
-			$(RM) $(MOBJ) $(BOBJ)
+				$(RM) $(MOBJ) $(BOBJ) $(ODIR)
 
-fclean: 	clean
-			$(RM) $(NAME)
+fclean: 		clean
+				$(RM) $(NAME)
 
-re:			fclean all
+re:				fclean all
 
 .PHONY: 	all clean fclean re bonus

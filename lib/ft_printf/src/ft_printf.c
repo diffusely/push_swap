@@ -1,29 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/14 17:03:37 by noavetis          #+#    #+#             */
-/*   Updated: 2025/04/20 01:19:14 by noavetis         ###   ########.fr       */
+/*   Created: 2025/01/31 18:31:58 by noavetis          #+#    #+#             */
+/*   Updated: 2025/04/20 00:44:03 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
+#include "ft_printf.h"
 
-int	main(int argc, char **argv)
+int	ft_printf(const char *str, ...)
 {
-	(void)argv;
-	t_stack	*a;
-	//t_stack	*b;
-	if (argc < 2)
+	int		count;
+	va_list	args;
+
+	va_start(args, str);
+	count = 0;
+	while (*str)
 	{
-		error_handle("Error\n");
+		if (*str == '%')
+		{
+			str++;
+			if (*str)
+				ft_find_type(*str, args, &count);
+			else
+				break ;
+		}
+		else
+			count += write(1, str, 1);
+		str++;
 	}
-	valid_input(&a, argc, argv);
-	ft_printf("\n");
-	print_stack(a);
-	return (0);
+	va_end(args);
+	return (count);
 }

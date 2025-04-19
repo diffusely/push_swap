@@ -1,29 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/14 17:03:37 by noavetis          #+#    #+#             */
-/*   Updated: 2025/04/20 01:19:14 by noavetis         ###   ########.fr       */
+/*   Created: 2025/04/20 01:15:31 by noavetis          #+#    #+#             */
+/*   Updated: 2025/04/20 01:15:51 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
-int	main(int argc, char **argv)
+void	free_split(char **sp)
 {
-	(void)argv;
-	t_stack	*a;
-	//t_stack	*b;
-	if (argc < 2)
+	int	i;
+
+	i = 0;
+	while (sp[i])
 	{
-		error_handle("Error\n");
+		free(sp[i]);
+		sp[i] = NULL;
+		i++;
 	}
-	valid_input(&a, argc, argv);
-	ft_printf("\n");
-	print_stack(a);
-	return (0);
+	free(sp);
+	sp = NULL;
+}
+
+void	free_all(t_stack **a, char **res, char *r)
+{
+	free_split(res);
+	free(r);
+	free_stack(a);
+	error_handle("Error1\n");
+}
+
+void	free_stack(t_stack **lst)
+{
+	while (lst && *lst)
+		pop_front(lst);
+	*lst = NULL;
 }

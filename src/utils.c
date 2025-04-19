@@ -3,26 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noavetis <noavetis@student.42.fr>          +#+  +:+       +#+        */
+/*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 17:22:36 by noavetis          #+#    #+#             */
-/*   Updated: 2025/04/18 17:29:48 by noavetis         ###   ########.fr       */
+/*   Updated: 2025/04/20 01:15:46 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_split(char **sp)
+void	error_handle(char *message)
 {
-	int	i;
-
-	i = 0;
-	while (sp[i])
-	{
-		free(sp[i]);
-		sp[i] = NULL;
-		i++;
-	}
-	free(sp);
-	sp = NULL;
+	ft_putstr_fd(message, 2);
+	exit(EXIT_FAILURE);
 }
+

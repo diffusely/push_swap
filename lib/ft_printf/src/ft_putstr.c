@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/14 17:03:37 by noavetis          #+#    #+#             */
-/*   Updated: 2025/04/20 01:19:14 by noavetis         ###   ########.fr       */
+/*   Created: 2025/02/04 18:54:20 by noavetis          #+#    #+#             */
+/*   Updated: 2025/02/04 22:16:08 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
+#include "ft_printf.h"
 
-int	main(int argc, char **argv)
+size_t	ft_putstr(char *str)
 {
-	(void)argv;
-	t_stack	*a;
-	//t_stack	*b;
-	if (argc < 2)
-	{
-		error_handle("Error\n");
-	}
-	valid_input(&a, argc, argv);
-	ft_printf("\n");
-	print_stack(a);
-	return (0);
+	if (!str)
+		return (write(1, "(null)", 6));
+	return (write(1, str, ft_strlen(str)));
+}
+
+size_t	ft_putchar(char c)
+{
+	return (write(1, &c, 1));
 }
