@@ -1,28 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/18 17:22:36 by noavetis          #+#    #+#             */
-/*   Updated: 2025/04/20 02:10:52 by noavetis         ###   ########.fr       */
+/*   Created: 2025/04/20 02:21:39 by noavetis          #+#    #+#             */
+/*   Updated: 2025/04/20 02:42:48 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	error_handle(char *message)
+static void	up(t_stack **tmp)
 {
-	ft_putstr_fd(message, 2);
-	exit(EXIT_FAILURE);
+	push_back(tmp, (*tmp)->value);
+	pop_front(tmp);
 }
 
-void	ft_swap(int *a, int *b)
+void	ra(t_stack **a)
 {
-	int	temp;
+	if (!a)
+		return ;
+	if (*a)
+	{
+		up(a);
+		ft_printf("ra\n");
+	}
+}
 
-	temp = *a;
-	*a = *b;
-	*b = temp;
+void	rb(t_stack **b)
+{
+	if (!b)
+		return ;
+	if (*b)
+	{
+		up(b);
+		ft_printf("rb\n");
+	}
+}
+
+void	rr(t_stack **a, t_stack **b)
+{
+	if (!b)
+		return ;
+	if (*b)
+	{
+		up(a);
+		up(b);
+		ft_printf("rr\n");
+	}
 }

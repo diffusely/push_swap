@@ -5,7 +5,8 @@ LIBFT		= lib/libft/
 INCLUDES	= includes
 SRC_DIR		= src/
 
-SRC			= main.c $(SRC_DIR)validation.c $(SRC_DIR)utils.c $(SRC_DIR)stack.c $(SRC_DIR)free.c
+SRC			= main.c $(SRC_DIR)validation.c $(SRC_DIR)utils.c $(SRC_DIR)stack.c $(SRC_DIR)free.c \
+			  $(SRC_DIR)operations.c
 		
 OBJ			= $(SRC:%.c=%.o)
 
