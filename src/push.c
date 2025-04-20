@@ -1,43 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/20 01:15:31 by noavetis          #+#    #+#             */
-/*   Updated: 2025/04/20 13:56:57 by noavetis         ###   ########.fr       */
+/*   Created: 2025/04/20 16:04:21 by noavetis          #+#    #+#             */
+/*   Updated: 2025/04/20 19:04:08 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_split(char **sp)
+void	pa(t_stack **a, t_stack **b)
 {
-	int	i;
-
-	i = 0;
-	while (sp[i])
+	if (!b)
+		return ;
+	if (*b)
 	{
-		free(sp[i]);
-		sp[i] = NULL;
-		i++;
+		push_front(a, (*b)->value, (*b)->index);
+		pop_front(b);
+		ft_printf("pa\n");
 	}
-	free(sp);
-	sp = NULL;
 }
 
-void	free_all(t_stack **a, char **res, char *r)
+void	pb(t_stack **a, t_stack **b)
 {
-	free_split(res);
-	free(r);
-	free_stack(a);
-	error_handle("Error\n");
-}
-
-void	free_stack(t_stack **lst)
-{
-	while (lst && *lst)
-		pop_front(lst);
-	*lst = NULL;
+	if (!a)
+		return ;
+	if (*a)
+	{
+		push_front(b, (*a)->value, (*a)->index);
+		pop_front(a);
+		ft_printf("pb\n");
+	}
 }

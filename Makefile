@@ -6,7 +6,8 @@ INCLUDES	= includes
 SRC_DIR		= src/
 
 SRC			= main.c $(SRC_DIR)validation.c $(SRC_DIR)utils.c $(SRC_DIR)stack.c $(SRC_DIR)free.c \
-			  $(SRC_DIR)operations.c
+			  $(SRC_DIR)shift_down.c $(SRC_DIR)swap.c $(SRC_DIR)shift_up.c $(SRC_DIR)push.c \
+			  $(SRC_DIR)logic.c
 		
 OBJ			= $(SRC:%.c=%.o)
 

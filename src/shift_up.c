@@ -1,43 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   shift_up.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/20 01:15:31 by noavetis          #+#    #+#             */
-/*   Updated: 2025/04/20 13:56:57 by noavetis         ###   ########.fr       */
+/*   Created: 2025/04/20 02:21:39 by noavetis          #+#    #+#             */
+/*   Updated: 2025/04/20 23:41:22 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_split(char **sp)
+static void	up(t_stack **tmp)
 {
-	int	i;
+	push_back(tmp, (*tmp)->value, (*tmp)->index);
+	pop_front(tmp);
+}
 
-	i = 0;
-	while (sp[i])
+void	ra(t_stack **a)
+{
+	if (!a)
+		return ;
+	if (*a)
 	{
-		free(sp[i]);
-		sp[i] = NULL;
-		i++;
+		up(a);
+		ft_printf("ra\n");
 	}
-	free(sp);
-	sp = NULL;
 }
 
-void	free_all(t_stack **a, char **res, char *r)
+void	rb(t_stack **b)
 {
-	free_split(res);
-	free(r);
-	free_stack(a);
-	error_handle("Error\n");
+	if (!b)
+		return ;
+	if (*b)
+	{
+		up(b);
+		ft_printf("rb\n");
+	}
 }
 
-void	free_stack(t_stack **lst)
+void	rr(t_stack **a, t_stack **b)
 {
-	while (lst && *lst)
-		pop_front(lst);
-	*lst = NULL;
+	if (!a || !b)
+		return ;
+	if (*a)
+		up(a);
+	if (*b)
+		up(b);
+	ft_printf("rr\n");
 }

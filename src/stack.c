@@ -6,13 +6,13 @@
 /*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 00:43:33 by noavetis          #+#    #+#             */
-/*   Updated: 2025/04/20 02:34:30 by noavetis         ###   ########.fr       */
+/*   Updated: 2025/04/20 22:28:26 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_front(t_stack **lst, int val)
+void	push_front(t_stack **lst, int val, int ind)
 {
 	t_stack	*new;
 
@@ -22,6 +22,7 @@ void	push_front(t_stack **lst, int val)
 	if (!new)
 		error_handle("Bad alloc\n");
 	new->value = val;
+	new->index = ind;
 	new->next = NULL;
 	if (*lst)
 	{
@@ -32,7 +33,7 @@ void	push_front(t_stack **lst, int val)
 		*lst = new;
 }
 
-void	push_back(t_stack **lst, int val)
+void	push_back(t_stack **lst, int val, int ind)
 {
 	t_stack	*new;
 	t_stack	*head;
@@ -43,12 +44,13 @@ void	push_back(t_stack **lst, int val)
 	if (!new)
 		error_handle("Bad alloc\n");
 	new->value = val;
+	new->index = ind;
 	new->next = NULL;
 	if (*lst)
 	{
 		head = *lst;
 		while (head->next)
-			head = head->next;	
+			head = head->next;
 		head->next = new;
 	}
 	else
@@ -74,30 +76,37 @@ void	pop_back(t_stack **lst)
 	if (lst && *lst)
 	{
 		head = *lst;
-		if (head->next)
+		if (!head->next)
 		{
-			pop_back(lst);
+			pop_front(lst);
+			lst = NULL;
 			return ;
 		}
 		while (head->next->next)
-			head = (*lst)->next;
+			head = head->next;
 		free(head->next);
+		head->next = NULL;
 	}
+}
+
+int	stack_size(t_stack *a)
+{
+	int	c;
+
+	c = 0;
+	while (a)
+	{
+		c++;
+		a = a->next;
+	}
+	return (c);
 }
 
 void	print_stack(t_stack *lst)
 {
 	while (lst)
 	{
-		ft_printf("%d\n", lst->value);
+		ft_printf("val=%d id=%d\n", lst->value, lst->index);
 		lst = lst->next;
 	}
 }
-
-// void	rotation(t_stack **lst)
-// {
-// 	if (!lst)
-// 		return ;
-// 	if (*lst && (*lst)->tail)
-// 		ft_swap(&((*lst)->value), &((*lst)->tail->value));
-// }

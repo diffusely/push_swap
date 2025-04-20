@@ -6,7 +6,7 @@
 /*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 12:27:07 by noavetis          #+#    #+#             */
-/*   Updated: 2025/04/20 01:52:07 by noavetis         ###   ########.fr       */
+/*   Updated: 2025/04/20 21:59:08 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,58 @@ static void	pars_null(char *str)
 	str[j] = '\0';
 }
 
+static void	valid_ret_num(t_stack **a)
+{
+	t_stack	*first;
+	t_stack	*second;
+
+	if ((*a)->next)
+	{
+		first = *a;
+		while (first)
+		{
+			second = first->next;
+			while (second)
+			{
+				if (first->value == second->value)
+				{
+					free_stack(a);
+					error_handle("Error\n");
+				}
+				second = second->next;
+			}
+			first = first->next;
+		}
+	}
+}
+
+static void	valid_number(t_stack **a, int argc, char **input)
+{
+	int		i;
+	int		j;
+	int		id;
+	char	**res;
+	char	*r;
+
+	i = 0;
+	id = 0;
+	while (++i < argc)
+	{
+		res = ft_split(input[i], ' ');
+		j = -1;
+		while (res[++j])
+		{
+			r = ft_itoa(ft_atoi(res[j]));
+			pars_null(res[j]);
+			push_back(a, ft_atoi(res[j]), id++);
+			if (ft_strncmp(r, res[j], ft_strlen(r)))
+				free_all(a, res, r);
+			free(r);
+		}
+		free_split(res);
+	}
+}
+
 void	valid_input(t_stack **a, int argc, char **input)
 {
 	int	i;
@@ -75,31 +127,6 @@ void	valid_input(t_stack **a, int argc, char **input)
 	while (i < argc)
 		valid_input_number(input[i++], &size);
 	valid_number(a, argc, input);
-}
-
-void	valid_number(t_stack **a, int argc, char **input)
-{
-	int		i;
-	int		j;
-	char	**res;
-	char	*r;
-
-	i = 0;
-	while (++i < argc)
-	{
-		res = ft_split(input[i], ' ');
-		j = -1;
-		while (res[++j])
-		{
-			r = ft_itoa(ft_atoi(res[j]));
-			pars_null(res[j]);
-			push_front(a, ft_atoi(res[j]));
-			if (ft_strncmp(r, res[j], ft_strlen(r)))
-				free_all(a, res, r);
-			free(r);
-		}
-		free_split(res);
-	}
-	
-	print_stack(*a);
+	valid_ret_num(a);
+	sort_index(a);
 }

@@ -1,53 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
+/*   shift_down.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/20 02:21:39 by noavetis          #+#    #+#             */
-/*   Updated: 2025/04/20 02:42:48 by noavetis         ###   ########.fr       */
+/*   Created: 2025/04/20 15:45:20 by noavetis          #+#    #+#             */
+/*   Updated: 2025/04/20 17:05:48 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	up(t_stack **tmp)
+static void	down(t_stack **tmp)
 {
-	push_back(tmp, (*tmp)->value);
-	pop_front(tmp);
+	t_stack	*head;
+
+	head = *tmp;
+	while (head->next)
+		head = head->next;
+	push_front(tmp, head->value, head->index);
+	pop_back(tmp);
 }
 
-void	ra(t_stack **a)
+void	rra(t_stack **a)
 {
 	if (!a)
 		return ;
 	if (*a)
 	{
-		up(a);
-		ft_printf("ra\n");
+		down(a);
+		ft_printf("rra\n");
 	}
 }
 
-void	rb(t_stack **b)
+void	rrb(t_stack **b)
 {
 	if (!b)
 		return ;
 	if (*b)
 	{
-		up(b);
-		ft_printf("rb\n");
+		down(b);
+		ft_printf("rrb\n");
 	}
 }
 
-void	rr(t_stack **a, t_stack **b)
+void	rrr(t_stack **a, t_stack **b)
 {
-	if (!b)
+	if (!a || !b)
 		return ;
+	if (*a)
+		down(a);
 	if (*b)
-	{
-		up(a);
-		up(b);
-		ft_printf("rr\n");
-	}
+		down(b);
+	ft_printf("rrr\n");
 }
