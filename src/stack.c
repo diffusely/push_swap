@@ -6,7 +6,7 @@
 /*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 00:43:33 by noavetis          #+#    #+#             */
-/*   Updated: 2025/04/20 22:28:26 by noavetis         ###   ########.fr       */
+/*   Updated: 2025/04/21 01:27:32 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,13 +100,4 @@ int	stack_size(t_stack *a)
 		a = a->next;
 	}
 	return (c);
-}
-
-void	print_stack(t_stack *lst)
-{
-	while (lst)
-	{
-		ft_printf("val=%d id=%d\n", lst->value, lst->index);
-		lst = lst->next;
-	}
 }

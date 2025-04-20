@@ -6,7 +6,7 @@
 /*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 14:13:50 by noavetis          #+#    #+#             */
-/*   Updated: 2025/04/20 15:55:40 by noavetis         ###   ########.fr       */
+/*   Updated: 2025/04/21 01:27:22 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,13 @@ void	ss(t_stack **a, t_stack **b)
 	if (*b)
 		stack_swap(b);
 	ft_printf("ss\n");
+}
+
+void	print_stack(t_stack *lst)
+{
+	while (lst)
+	{
+		ft_printf("val=%d id=%d\n", lst->value, lst->index);
+		lst = lst->next;
+	}
 }
