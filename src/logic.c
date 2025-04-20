@@ -6,7 +6,7 @@
 /*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 16:19:10 by noavetis          #+#    #+#             */
-/*   Updated: 2025/04/21 00:28:43 by noavetis         ###   ########.fr       */
+/*   Updated: 2025/04/21 01:18:24 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,71 +77,4 @@ void	sort_index(t_stack **a)
 		head = head->next;
 	}
 	free_stack(&copy);
-}
-
-static void	radix_helper(t_stack **a, t_stack **b, int *i, int size, int *count, int max)
-{
-	if (is_sorted(*a))
-		return ;
-	while (size--)
-	{
-		
-		ft_printf("****a*******\n");
-		print_stack(*a);
-		ft_printf("************\n");
-		ft_printf("*****b******\n");
-		print_stack(*b);
-		ft_printf("************\n");
-		if ((*a)->index == max + *count)
-		{
-			ra(a);
-			++(*count);
-			ft_printf("****a*******\n");
-			print_stack(*a);
-			ft_printf("************\n");
-			ft_printf("*****b******\n");
-			print_stack(*b);
-			ft_printf("************\n");
-		}
-		else if ((((*a)->index >> *i) & 1) == 0)
-			pb(a, b);
-		else
-			ra(a);
-		if (!(*b) && is_sorted(*a))
-			return ;
-	}
-	// if ((*b)->index == find_min(*b) + *count)
-	// {
-	// 	rrb(b);
-	// 	sb(b);
-	// 	rb(b);
-	// 	rb(b);
-	// 	++(*count);
-	// }
-	while (*b)
-		pa(a, b);
-}
-
-void	radix_sort(t_stack **a, t_stack **b)
-{
-	int	max;
-	int	max_bits;
-	int	size;
-	int	i;
-	int	count;
-
-	count = 0;
-	size = stack_size(*a);
-	max = find_min(a);
-	ft_printf("%d\n", max);
-	max_bits = 0;
-	while ((max >> max_bits) != 0)
-		++max_bits;
-	++max_bits;
-	i = 0;
-	while (i < max_bits)
-	{
-		radix_helper(a, b, &i, size, &count, max);
-		++i;
-	}
 }

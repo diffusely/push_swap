@@ -6,7 +6,7 @@
 /*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 18:15:47 by noavetis          #+#    #+#             */
-/*   Updated: 2025/04/20 23:53:46 by noavetis         ###   ########.fr       */
+/*   Updated: 2025/04/21 01:21:18 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ int	main(int argc, char **argv)
 	valid_input(&a, argc, argv);
 	if (!is_sorted(a))
 		radix_sort(&a, &b);
-	print_stack(a);
 	free_stack(&a);
 	return (0);
 }

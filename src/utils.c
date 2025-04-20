@@ -6,7 +6,7 @@
 /*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 17:22:36 by noavetis          #+#    #+#             */
-/*   Updated: 2025/04/21 00:27:39 by noavetis         ###   ########.fr       */
+/*   Updated: 2025/04/21 01:21:03 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ int	find_max(t_stack **tmp)
 	head = (*tmp);
 	while (head)
 	{
-		ft_printf("%d\n", head->index);
 		if (max < head->index)
 			max = head->index;
 		head = head->next;
@@ -57,7 +56,6 @@ int	find_min(t_stack **tmp)
 	head = (*tmp);
 	while (head)
 	{
-		ft_printf("%d\n", head->index);
 		if (min > head->index)
 			min = head->index;
 		head = head->next;

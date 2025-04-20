@@ -6,7 +6,7 @@
 /*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 17:06:10 by noavetis          #+#    #+#             */
-/*   Updated: 2025/04/21 00:25:49 by noavetis         ###   ########.fr       */
+/*   Updated: 2025/04/21 01:18:47 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,5 @@ void	pb(t_stack **a, t_stack **b);
 void	sort_index(t_stack **a);
 void	radix_sort(t_stack **a, t_stack **b);
 int		is_sorted(t_stack *tmp);
-
 
 #endif
