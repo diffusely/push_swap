@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: noavetis <noavetis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/20 18:15:47 by noavetis          #+#    #+#             */
-/*   Updated: 2025/04/22 18:53:36 by noavetis         ###   ########.fr       */
+/*   Created: 2025/04/23 19:12:35 by noavetis          #+#    #+#             */
+/*   Updated: 2025/04/23 21:07:06 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ int	main(int argc, char **argv)
 	b = NULL;
 	valid_input(&a, argc, argv);
 	if (!is_sorted(a))
-		radix_sort(&a, &b);
-	//print_stack(a);
+		chunk_sort(&a, &b);
 	free_stack(&a);
 	return (0);
 }

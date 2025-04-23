@@ -6,7 +6,7 @@
 /*   By: noavetis <noavetis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 17:06:10 by noavetis          #+#    #+#             */
-/*   Updated: 2025/04/23 17:20:08 by noavetis         ###   ########.fr       */
+/*   Updated: 2025/04/23 21:10:10 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	pb(t_stack **a, t_stack **b, int flag);
 
 // Sort
 void	sort_index(t_stack **a);
-void	radix_sort(t_stack **a, t_stack **b);
+void	chunk_sort(t_stack **a, t_stack **b);
 int		is_sorted(t_stack *tmp);
 
 #endif

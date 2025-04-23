@@ -6,13 +6,21 @@
 /*   By: noavetis <noavetis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 16:31:44 by noavetis          #+#    #+#             */
-/*   Updated: 2025/04/23 17:23:24 by noavetis         ###   ########.fr       */
+/*   Updated: 2025/04/23 21:10:29 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
-void	check_type(t_stack **a, t_stack **b, char *str)
+static void	wrong_input(t_stack **a, t_stack **b, char *str)
+{
+	free_stack(a);
+	free_stack(b);
+	free(str);
+	error_handle("Error\n");
+}
+
+static void	check_type(t_stack **a, t_stack **b, char *str)
 {
 	if (!ft_strncmp(str, "sa\n", 3))
 		sa(a, 0);
@@ -37,13 +45,19 @@ void	check_type(t_stack **a, t_stack **b, char *str)
 	else if (!ft_strncmp(str, "rrr\n", 4))
 		rrr(a, b, 0);
 	else
-		error_handle("Error\n");
+		wrong_input(a, b, str);
 }
 
 void	read_terminal(t_stack **a, t_stack **b)
 {
 	char	*str;
 
+	if (is_sorted(*a))
+	{
+		free_stack(a);
+		ft_printf("OK\n");
+		exit(0);
+	}
 	str = get_next_line(0);
 	check_type(a, b, str);
 	while (str)
