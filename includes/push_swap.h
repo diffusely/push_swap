@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: noavetis <noavetis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 17:06:10 by noavetis          #+#    #+#             */
-/*   Updated: 2025/04/21 01:18:47 by noavetis         ###   ########.fr       */
+/*   Updated: 2025/04/23 17:20:08 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,23 +52,23 @@ int		find_max(t_stack **tmp);
 int		find_min(t_stack **tmp);
 
 // Shift up
-void	ra(t_stack **a);
-void	rb(t_stack **b);
-void	rr(t_stack **a, t_stack **b);
+void	ra(t_stack **a, int flag);
+void	rb(t_stack **b, int flag);
+void	rr(t_stack **a, t_stack **b, int flag);
 
 // Shift down
-void	rra(t_stack **a);
-void	rrb(t_stack **b);
-void	rrr(t_stack **a, t_stack **b);
+void	rra(t_stack **a, int flag);
+void	rrb(t_stack **b, int flag);
+void	rrr(t_stack **a, t_stack **b, int flag);
 
 // Swap
-void	sa(t_stack **a);
-void	sb(t_stack **b);
-void	ss(t_stack **a, t_stack **b);
+void	sa(t_stack **a, int flag);
+void	sb(t_stack **b, int flag);
+void	ss(t_stack **a, t_stack **b, int flag);
 
 // Push
-void	pa(t_stack **a, t_stack **b);
-void	pb(t_stack **a, t_stack **b);
+void	pa(t_stack **a, t_stack **b, int flag);
+void	pb(t_stack **a, t_stack **b, int flag);
 
 // Sort
 void	sort_index(t_stack **a);

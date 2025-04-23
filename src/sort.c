@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: noavetis <noavetis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 01:08:43 by noavetis          #+#    #+#             */
-/*   Updated: 2025/04/21 01:19:29 by noavetis         ###   ########.fr       */
+/*   Updated: 2025/04/23 17:19:04 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,19 +49,19 @@ static void	push_chunks(t_stack **a, t_stack **b, int chunk_size)
 	{
 		if ((*a)->index <= i)
 		{
-			pb(a, b);
-			rb(b);
+			pb(a, b, 1);
+			rb(b, 1);
 			i++;
 			pushed++;
 		}
 		else if ((*a)->index <= i + chunk_size)
 		{
-			pb(a, b);
+			pb(a, b, 1);
 			i++;
 			pushed++;
 		}
 		else
-			ra(a);
+			ra(a, 1);
 	}
 }
 
@@ -76,11 +76,11 @@ static void	pa_back(t_stack **a, t_stack **b)
 		pos = find_max_index_pos(*b);
 		if (pos <= size / 2)
 			while (pos--)
-				rb(b);
+				rb(b, 1);
 		else
 			while (pos++ < size)
-				rrb(b);
-		pa(a, b);
+				rrb(b, 1);
+		pa(a, b, 1);
 	}
 }
 

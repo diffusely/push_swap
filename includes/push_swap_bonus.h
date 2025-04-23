@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noavetis <noavetis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/20 18:15:47 by noavetis          #+#    #+#             */
-/*   Updated: 2025/04/22 18:53:36 by noavetis         ###   ########.fr       */
+/*   Created: 2025/04/22 19:48:11 by noavetis          #+#    #+#             */
+/*   Updated: 2025/04/23 17:06:14 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+# ifndef	PUSH_SWAP_BONUS_H
+#define	PUSH_SWAP_BONUS_H
 
-int	main(int argc, char **argv)
-{
-	t_stack	*a;
-	t_stack	*b;
+# include "get_next_line.h"
+# include "push_swap.h"
 
-	if (argc < 2)
-	{
-		error_handle("Error\n");
-	}
-	a = NULL;
-	b = NULL;
-	valid_input(&a, argc, argv);
-	if (!is_sorted(a))
-		radix_sort(&a, &b);
-	//print_stack(a);
-	free_stack(&a);
-	return (0);
-}
+void	read_terminal(t_stack **a, t_stack **b);
+
+#endif

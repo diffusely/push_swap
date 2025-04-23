@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   shift_up.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: noavetis <noavetis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 02:21:39 by noavetis          #+#    #+#             */
-/*   Updated: 2025/04/20 23:41:22 by noavetis         ###   ########.fr       */
+/*   Updated: 2025/04/23 17:27:23 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,29 +18,31 @@ static void	up(t_stack **tmp)
 	pop_front(tmp);
 }
 
-void	ra(t_stack **a)
+void	ra(t_stack **a, int flag)
 {
 	if (!a)
 		return ;
 	if (*a)
 	{
 		up(a);
-		ft_printf("ra\n");
+		if (flag)
+			ft_printf("ra\n");
 	}
 }
 
-void	rb(t_stack **b)
+void	rb(t_stack **b, int flag)
 {
 	if (!b)
 		return ;
 	if (*b)
 	{
 		up(b);
-		ft_printf("rb\n");
+		if (flag)
+			ft_printf("rb\n");
 	}
 }
 
-void	rr(t_stack **a, t_stack **b)
+void	rr(t_stack **a, t_stack **b, int flag)
 {
 	if (!a || !b)
 		return ;
@@ -48,5 +50,6 @@ void	rr(t_stack **a, t_stack **b)
 		up(a);
 	if (*b)
 		up(b);
-	ft_printf("rr\n");
+	if (flag)
+		ft_printf("rr\n");
 }

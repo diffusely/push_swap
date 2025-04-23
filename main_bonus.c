@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noavetis <noavetis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/20 18:15:47 by noavetis          #+#    #+#             */
-/*   Updated: 2025/04/22 18:53:36 by noavetis         ###   ########.fr       */
+/*   Created: 2025/04/22 20:10:28 by noavetis          #+#    #+#             */
+/*   Updated: 2025/04/23 17:25:13 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-int	main(int argc, char **argv)
+int main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
@@ -24,9 +24,11 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	valid_input(&a, argc, argv);
-	if (!is_sorted(a))
-		radix_sort(&a, &b);
-	//print_stack(a);
-	free_stack(&a);
-	return (0);
+	read_terminal(&a, &b);
+	print_stack(a);
+	if (is_sorted(a))
+		ft_printf("OK\n");
+	else
+		ft_printf("KO\n");
+	//free_stack(&a);
 }

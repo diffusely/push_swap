@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: noavetis <noavetis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 14:13:50 by noavetis          #+#    #+#             */
-/*   Updated: 2025/04/21 01:27:22 by noavetis         ###   ########.fr       */
+/*   Updated: 2025/04/23 17:27:48 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,29 +22,31 @@ static void	stack_swap(t_stack **tmp)
 	*tmp = temp;
 }
 
-void	sa(t_stack **a)
+void	sa(t_stack **a, int flag)
 {
 	if (!a)
 		return ;
 	if (*a && (*a)->next)
 	{
 		stack_swap(a);
-		ft_printf("sa\n");
+		if (flag)
+			ft_printf("sa\n");
 	}
 }
 
-void	sb(t_stack **b)
+void	sb(t_stack **b, int flag)
 {
 	if (!b)
 		return ;
 	if (*b && (*b)->next)
 	{
 		stack_swap(b);
-		ft_printf("sb\n");
+		if (flag)
+			ft_printf("sb\n");
 	}
 }
 
-void	ss(t_stack **a, t_stack **b)
+void	ss(t_stack **a, t_stack **b, int flag)
 {
 	if (!a || !b)
 		return ;
@@ -52,7 +54,8 @@ void	ss(t_stack **a, t_stack **b)
 		stack_swap(a);
 	if (*b)
 		stack_swap(b);
-	ft_printf("ss\n");
+	if (flag)
+		ft_printf("ss\n");
 }
 
 void	print_stack(t_stack *lst)

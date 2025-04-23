@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: noavetis <noavetis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 00:43:33 by noavetis          #+#    #+#             */
-/*   Updated: 2025/04/21 01:27:32 by noavetis         ###   ########.fr       */
+/*   Updated: 2025/04/22 18:50:44 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	push_front(t_stack **lst, int val, int ind)
 		return ;
 	new = (t_stack *)malloc(sizeof(t_stack));
 	if (!new)
-		error_handle("Bad alloc\n");
+		error_handle("Error\n");
 	new->value = val;
 	new->index = ind;
 	new->next = NULL;
@@ -42,7 +42,7 @@ void	push_back(t_stack **lst, int val, int ind)
 		return ;
 	new = (t_stack *)malloc(sizeof(t_stack));
 	if (!new)
-		error_handle("Bad alloc\n");
+		error_handle("Error\n");
 	new->value = val;
 	new->index = ind;
 	new->next = NULL;

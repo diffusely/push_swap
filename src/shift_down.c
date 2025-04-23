@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   shift_down.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: noavetis <noavetis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 15:45:20 by noavetis          #+#    #+#             */
-/*   Updated: 2025/04/20 17:05:48 by noavetis         ###   ########.fr       */
+/*   Updated: 2025/04/23 17:27:04 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,29 +23,31 @@ static void	down(t_stack **tmp)
 	pop_back(tmp);
 }
 
-void	rra(t_stack **a)
+void	rra(t_stack **a, int flag)
 {
 	if (!a)
 		return ;
 	if (*a)
 	{
 		down(a);
-		ft_printf("rra\n");
+		if (flag)
+			ft_printf("rra\n");
 	}
 }
 
-void	rrb(t_stack **b)
+void	rrb(t_stack **b, int flag)
 {
 	if (!b)
 		return ;
 	if (*b)
 	{
 		down(b);
-		ft_printf("rrb\n");
+		if (flag)
+			ft_printf("rrb\n");
 	}
 }
 
-void	rrr(t_stack **a, t_stack **b)
+void	rrr(t_stack **a, t_stack **b, int flag)
 {
 	if (!a || !b)
 		return ;
@@ -53,5 +55,6 @@ void	rrr(t_stack **a, t_stack **b)
 		down(a);
 	if (*b)
 		down(b);
-	ft_printf("rrr\n");
+	if (flag)
+		ft_printf("rrr\n");
 }
