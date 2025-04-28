@@ -9,7 +9,7 @@ BDIR		= bonus/
 
 SRC			= $(SRC_DIR)validation.c $(SRC_DIR)utils.c $(SRC_DIR)stack.c $(SRC_DIR)free.c \
 			  $(SRC_DIR)shift_down.c $(SRC_DIR)swap.c $(SRC_DIR)shift_up.c $(SRC_DIR)push.c \
-			  $(SRC_DIR)logic.c $(SRC_DIR)sort.c
+			  $(SRC_DIR)logic.c $(SRC_DIR)sort.c $(SRC_DIR)optimaze.c
 
 BONUS		= main_bonus.c $(BDIR)input_bonus.c
 

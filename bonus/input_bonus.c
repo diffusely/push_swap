@@ -6,7 +6,7 @@
 /*   By: noavetis <noavetis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 16:31:44 by noavetis          #+#    #+#             */
-/*   Updated: 2025/04/23 21:10:29 by noavetis         ###   ########.fr       */
+/*   Updated: 2025/04/24 20:22:44 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,13 @@ void	read_terminal(t_stack **a, t_stack **b)
 		ft_printf("OK\n");
 		exit(0);
 	}
-	str = get_next_line(0);
-	check_type(a, b, str);
-	while (str)
+	while (1)
 	{
-		free(str);
 		str = get_next_line(0);
 		if (str)
 			check_type(a, b, str);
+		else
+			break ;
+		free(str);
 	}
 }

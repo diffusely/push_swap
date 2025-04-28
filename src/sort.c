@@ -6,7 +6,7 @@
 /*   By: noavetis <noavetis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 01:08:43 by noavetis          #+#    #+#             */
-/*   Updated: 2025/04/23 21:06:57 by noavetis         ###   ########.fr       */
+/*   Updated: 2025/04/24 20:55:05 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,46 +84,15 @@ static void	pa_back(t_stack **a, t_stack **b)
 	}
 }
 
-static void	radix_help(t_stack **a)
-{
-	if ((*a)->index == 0)
-	{
-		ra(a, 1);
-		sa(a, 1);
-		if ((*a)->index == 2)
-			rra(a, 1);
-	}
-	else if ((*a)->index == 1)
-	{
-		rra(a, 1);
-		if ((*a)->index == 2)
-		{
-			ra(a, 1);
-			sa(a, 1);
-		}
-	}
-	else if ((*a)->index == 2)
-	{
-		ra(a, 1);
-		if ((*a)->index == 1)
-			sa(a, 1);
-	}
-}
-
 void	chunk_sort(t_stack **a, t_stack **b)
 {
 	int	size;
 	int	chunk_size;
 
 	size = stack_size(*a);
-	if (size == 2)
+	if (size == 2 || size == 3 || size == 4 || size == 5)
 	{
-		sa(a, 1);
-		return ;
-	}
-	if (size == 3)
-	{
-		radix_help(a);
+		sort_help(a, b, size);
 		return ;
 	}
 	if (size <= 100)

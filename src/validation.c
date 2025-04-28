@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: noavetis <noavetis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 12:27:07 by noavetis          #+#    #+#             */
-/*   Updated: 2025/04/20 21:59:08 by noavetis         ###   ########.fr       */
+/*   Updated: 2025/04/24 20:20:52 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	valid_input_number(const char *str, int *size)
 			++(*size);
 		while (*str && ft_isdigit(*str))
 			str++;
-		if (*str && *str != ' ')
+		if (*str && !((*str >= 9 && *str <= 13) || (*str == ' ')))
 			error_handle("Error\n");
 	}
 	if (*size == temp)
